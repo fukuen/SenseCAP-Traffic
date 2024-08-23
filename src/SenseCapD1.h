@@ -111,7 +111,7 @@ namespace lgfx
 
     bool init(void) override
     {
-      lgfx::i2c::writeRegister8(i2c_port, pca9535_i2c_addr, 0x02, 0, ~(1<<7), i2c_freq);  // TP_RST
+      lgfx::i2c::writeRegister8(i2c_port, pca9535_i2c_addr, 0x02, 0, (uint8_t)~(1<<7), i2c_freq);  // TP_RST
       lgfx::delay(10);
       lgfx::i2c::writeRegister8(i2c_port, pca9535_i2c_addr, 0x02, (1<<7), ~0, i2c_freq);  // TP_RST
       lgfx::delay(10);
